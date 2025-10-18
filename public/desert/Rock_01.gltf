@@ -1,0 +1,194 @@
+{
+  "asset": {
+    "generator": "UnityGltf 2.17.8, Unity 6000.2.8f1, URP",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Rock_01"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 242,
+      "type": "VEC3",
+      "max": [
+        0.86910945177078247,
+        1.2329320907592773,
+        0.85063999891281128
+      ],
+      "min": [
+        -0.84512096643447876,
+        0.0027849972248077393,
+        -0.8506399393081665
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 242,
+      "type": "VEC3",
+      "max": [
+        0.97963529825210571,
+        0.996828019618988,
+        0.98021125793457031
+      ],
+      "min": [
+        -0.98365592956542969,
+        -1.0,
+        -0.92740547657012939
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 242,
+      "type": "VEC4",
+      "max": [
+        0.96090233325958252,
+        0.9877244234085083,
+        0.98998242616653442,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.986211895942688,
+        -0.48006758093833923,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 242,
+      "type": "VEC2",
+      "max": [
+        0.76781594753265381,
+        0.362085223197937
+      ],
+      "min": [
+        0.76447641849517822,
+        0.35010778903961182
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5121,
+      "count": 468,
+      "type": "SCALAR",
+      "max": [
+        241.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Rock_01.bin",
+      "byteLength": 12084
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2904,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2904,
+      "byteLength": 2904,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 5808,
+      "byteLength": 3872,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 9680,
+      "byteLength": 1936,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 11616,
+      "byteLength": 468,
+      "target": 34963
+    }
+  ],
+  "images": [
+    {
+      "uri": "Palette.jpg",
+      "name": "Palette"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "texCoord": 0
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Mat_01"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "Rock_01"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Rock_01"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729,
+      "wrapS": 33071,
+      "wrapT": 33071
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Palette"
+    }
+  ]
+}

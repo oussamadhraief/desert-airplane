@@ -2,13 +2,15 @@ import * as THREE from 'three';
 import { SETTINGS } from '../config/settings';
 import { Airplane } from '../entities/Airplane';
 import { Desert } from '../entities/Desert';
+import { CanyonWalls } from '../entities/CanyonWalls';
 import { InputManager } from '../systems/InputManager';
+import { CameraController } from '../systems/CameraController';
 
 export class Game {
   constructor() {
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0x87ceeb);
-    this.scene.fog = new THREE.Fog(0x87ceeb, 100, 500);
+    this.scene.background = new THREE.Color(0xcc7a52);
+    this.scene.fog = new THREE.Fog(0xcc7a52, 200, 700);
     this.isPaused = false;
 
     this.setupRenderer();
@@ -28,6 +30,7 @@ export class Game {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     document.body.appendChild(this.renderer.domElement);
   }
 
@@ -46,10 +49,10 @@ export class Game {
   }
 
   setupLights() {
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffd4a3, 0.7);
     this.scene.add(ambientLight);
 
-    const sunLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    const sunLight = new THREE.DirectionalLight(0xffe8cc, 0.6);
     sunLight.position.set(50, 100, 50);
     sunLight.castShadow = true;
     sunLight.shadow.camera.left = -100;
@@ -68,10 +71,14 @@ export class Game {
 
     this.desert = new Desert();
     this.scene.add(this.desert.mesh);
+
+    this.canyonWalls = new CanyonWalls();
+    this.scene.add(this.canyonWalls.mesh);
   }
 
   setupSystems() {
     this.inputManager = new InputManager();
+    this.cameraController = new CameraController();
   }
 
   setupUI() {
@@ -84,6 +91,8 @@ export class Game {
       <div class="control-item"><span class="key">A</span> → Turn Left</div>
       <div class="control-item"><span class="key">D</span> → Turn Right</div>
       <div class="control-item"><span class="key">P</span> → Pause</div>
+      <div class="control-item"><span class="key">Right Click + Drag</span> → Rotate Camera</div>
+      <div class="control-item"><span class="key">Scroll</span> → Zoom</div>
     `;
     document.body.appendChild(info);
 
@@ -115,10 +124,13 @@ export class Game {
     if (this.isPaused) return;
 
     this.airplane.update(this.inputManager);
+    this.desert.update(this.airplane.mesh.position);
+    this.canyonWalls.update(this.airplane.mesh.position);
     
-    const cameraOffset = new THREE.Vector3(0, 10, 30);
-    cameraOffset.applyQuaternion(this.airplane.mesh.quaternion);
-    this.camera.position.copy(this.airplane.mesh.position).add(cameraOffset);
+    const offset = this.cameraController.getCameraOffset(this.airplane.mesh.quaternion);
+    const offsetVector = new THREE.Vector3(offset.x, offset.y, offset.z);
+    offsetVector.applyQuaternion(this.airplane.mesh.quaternion);
+    this.camera.position.copy(this.airplane.mesh.position).add(offsetVector);
     this.camera.lookAt(this.airplane.mesh.position);
   }
 

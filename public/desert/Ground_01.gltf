@@ -1,0 +1,194 @@
+{
+  "asset": {
+    "generator": "UnityGltf 2.17.8, Unity 6000.2.8f1, URP",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Ground_01"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 200,
+      "type": "VEC3",
+      "max": [
+        2.5,
+        0.074018873274326324,
+        2.5
+      ],
+      "min": [
+        -2.5,
+        -0.091453328728675842,
+        -2.5
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 200,
+      "type": "VEC3",
+      "max": [
+        0.53661191463470459,
+        1.0,
+        0.81418299674987793
+      ],
+      "min": [
+        -0.5501396656036377,
+        0.53864842653274536,
+        -0.32098349928855896
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 200,
+      "type": "VEC4",
+      "max": [
+        1.0,
+        0.57870036363601685,
+        0.70452135801315308,
+        1.0
+      ],
+      "min": [
+        0.69286990165710449,
+        -0.53604501485824585,
+        -0.11510509997606277,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 200,
+      "type": "VEC2",
+      "max": [
+        0.76591414213180542,
+        0.26266574859619141
+      ],
+      "min": [
+        0.7608180046081543,
+        0.25295925140380859
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5121,
+      "count": 300,
+      "type": "SCALAR",
+      "max": [
+        199.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Ground_01.bin",
+      "byteLength": 9900
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2400,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2400,
+      "byteLength": 2400,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4800,
+      "byteLength": 3200,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 8000,
+      "byteLength": 1600,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 9600,
+      "byteLength": 300,
+      "target": 34963
+    }
+  ],
+  "images": [
+    {
+      "uri": "Palette.jpg",
+      "name": "Palette"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "texCoord": 0
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Mat_01"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "Ground_01"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Ground_01"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729,
+      "wrapS": 33071,
+      "wrapT": 33071
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Palette"
+    }
+  ]
+}

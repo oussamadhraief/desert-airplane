@@ -1,0 +1,194 @@
+{
+  "asset": {
+    "generator": "UnityGltf 2.17.8, Unity 6000.2.8f1, URP",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Cactus_01"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 7720,
+      "type": "VEC3",
+      "max": [
+        0.70707619190216064,
+        1.9028258323669434,
+        0.48822465538978577
+      ],
+      "min": [
+        -0.51145052909851074,
+        -7.4505805969238281E-09,
+        -0.692882776260376
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 7720,
+      "type": "VEC3",
+      "max": [
+        0.99614632129669189,
+        0.98436802625656128,
+        0.99974900484085083
+      ],
+      "min": [
+        -0.99532902240753174,
+        -1.0,
+        -0.99865782260894775
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 7720,
+      "type": "VEC4",
+      "max": [
+        0.9986565113067627,
+        0.99988353252410889,
+        0.99966681003570557,
+        1.0
+      ],
+      "min": [
+        -0.999017596244812,
+        -0.99988472461700439,
+        -0.99943393468856812,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 7720,
+      "type": "VEC2",
+      "max": [
+        0.71625351905822754,
+        0.76083743572235107
+      ],
+      "min": [
+        0.54557305574417114,
+        0.14847880601882935
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 8130,
+      "type": "SCALAR",
+      "max": [
+        7719.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Cactus_01.bin",
+      "byteLength": 386820
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 92640,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 92640,
+      "byteLength": 92640,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 185280,
+      "byteLength": 123520,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 308800,
+      "byteLength": 61760,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 370560,
+      "byteLength": 16260,
+      "target": 34963
+    }
+  ],
+  "images": [
+    {
+      "uri": "Palette.jpg",
+      "name": "Palette"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "texCoord": 0
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Mat_01"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "Cactus_01"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Cactus_01"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729,
+      "wrapS": 33071,
+      "wrapT": 33071
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Palette"
+    }
+  ]
+}

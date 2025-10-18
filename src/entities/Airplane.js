@@ -1,54 +1,48 @@
 import * as THREE from 'three';
 import { SETTINGS } from '../config/settings';
+import { modelLoader } from '../utils/ModelLoader';
 
 export class Airplane {
   constructor() {
     this.mesh = new THREE.Group();
     this.velocity = new THREE.Vector3(0, 0, 0);
     this.tilt = { x: 0, z: 0 };
+    this.model = null;
+    this.propeller = null;
+    this.isLoaded = false;
     
-    this.createMesh();
     this.mesh.position.set(0, 20, 0);
+    this.loadModel();
   }
 
-  createMesh() {
-    const bodyGeometry = new THREE.BoxGeometry(2, 1, 4);
-    const bodyMaterial = new THREE.MeshStandardMaterial({ color: 0xe8e8e8 });
-    const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
-    body.castShadow = true;
-    this.mesh.add(body);
+  async loadModel() {
+    try {
+      this.model = await modelLoader.load('/desert/war_plane.glb');
+      
+      this.model.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
 
-    const cockpitGeometry = new THREE.SphereGeometry(0.8, 16, 16);
-    const cockpitMaterial = new THREE.MeshStandardMaterial({ 
-      color: 0x4a90e2,
-      transparent: true,
-      opacity: 0.7
-    });
-    const cockpit = new THREE.Mesh(cockpitGeometry, cockpitMaterial);
-    cockpit.position.set(0, 0.5, 0.5);
-    cockpit.scale.set(1, 0.7, 1.2);
-    cockpit.castShadow = true;
-    this.mesh.add(cockpit);
+      this.model.scale.set(3, 3, 3);
+      this.model.rotation.y = Math.PI;
+      this.mesh.add(this.model);
+      
+      this.propeller = this.model.getObjectByName('Propeller');
+      if (!this.propeller) {
+        this.model.traverse((child) => {
+          if (child.isMesh && child.name.toLowerCase().includes('prop')) {
+            this.propeller = child;
+          }
+        });
+      }
 
-    const wingGeometry = new THREE.BoxGeometry(12, 0.2, 3);
-    const wingMaterial = new THREE.MeshStandardMaterial({ color: 0xd0d0d0 });
-    const wings = new THREE.Mesh(wingGeometry, wingMaterial);
-    wings.position.set(0, 0, 0);
-    wings.castShadow = true;
-    this.mesh.add(wings);
-
-    const tailGeometry = new THREE.BoxGeometry(0.3, 2, 2);
-    const tailMaterial = new THREE.MeshStandardMaterial({ color: 0xe8e8e8 });
-    const tail = new THREE.Mesh(tailGeometry, tailMaterial);
-    tail.position.set(0, 1, -2.5);
-    tail.castShadow = true;
-    this.mesh.add(tail);
-
-    const propellerGeometry = new THREE.BoxGeometry(0.2, 3, 0.3);
-    const propellerMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 });
-    this.propeller = new THREE.Mesh(propellerGeometry, propellerMaterial);
-    this.propeller.position.set(0, 0, 2.2);
-    this.mesh.add(this.propeller);
+      this.isLoaded = true;
+    } catch (error) {
+      console.error('Failed to load airplane model:', error);
+    }
   }
 
   update(inputManager) {
@@ -82,6 +76,8 @@ export class Airplane {
 
     this.mesh.position.y = Math.max(5, Math.min(50, this.mesh.position.y));
 
-    this.propeller.rotation.z += 0.5;
+    if (this.propeller) {
+      this.propeller.rotation.z += 0.5;
+    }
   }
 }

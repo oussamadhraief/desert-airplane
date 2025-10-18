@@ -1,0 +1,194 @@
+{
+  "asset": {
+    "generator": "UnityGltf 2.17.8, Unity 6000.2.8f1, URP",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "Tree_01"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 1074,
+      "type": "VEC3",
+      "max": [
+        1.2768540382385254,
+        3.4362754821777344,
+        1.1043539047241211
+      ],
+      "min": [
+        -0.8997761607170105,
+        0.0,
+        -1.2819935083389282
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1074,
+      "type": "VEC3",
+      "max": [
+        0.99953198432922363,
+        0.99943441152572632,
+        0.99823522567749023
+      ],
+      "min": [
+        -0.999946117401123,
+        -1.0,
+        -0.99982821941375732
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1074,
+      "type": "VEC4",
+      "max": [
+        0.9998849630355835,
+        0.999789297580719,
+        0.99954789876937866,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.99958759546279907,
+        -0.99849677085876465,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1074,
+      "type": "VEC2",
+      "max": [
+        0.86761331558227539,
+        0.43396967649459839
+      ],
+      "min": [
+        0.86547809839248657,
+        0.42853027582168579
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 1551,
+      "type": "SCALAR",
+      "max": [
+        1073.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "Tree_01.bin",
+      "byteLength": 54656
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 12888,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 12888,
+      "byteLength": 12888,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 25776,
+      "byteLength": 17184,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 42960,
+      "byteLength": 8592,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 51552,
+      "byteLength": 3104,
+      "target": 34963
+    }
+  ],
+  "images": [
+    {
+      "uri": "Palette.jpg",
+      "name": "Palette"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "texCoord": 0
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Mat_01"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "Tree_01"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "Tree_01"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729,
+      "wrapS": 33071,
+      "wrapT": 33071
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Palette"
+    }
+  ]
+}

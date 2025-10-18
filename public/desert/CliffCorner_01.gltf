@@ -1,0 +1,194 @@
+{
+  "asset": {
+    "generator": "UnityGltf 2.17.8, Unity 6000.2.8f1, URP",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "CliffCorner_01"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 2362,
+      "type": "VEC3",
+      "max": [
+        5.0,
+        5.56376314163208,
+        5.0
+      ],
+      "min": [
+        -2.8001580238342285,
+        -0.0001277923583984375,
+        -2.7987306118011475
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 2362,
+      "type": "VEC3",
+      "max": [
+        0.99944275617599487,
+        1.0,
+        0.99944275617599487
+      ],
+      "min": [
+        -0.994368851184845,
+        -0.52630704641342163,
+        -0.98035186529159546
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 2362,
+      "type": "VEC4",
+      "max": [
+        0.9999617338180542,
+        0.95782649517059326,
+        0.999993085861206,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -0.96497470140457153,
+        -0.99601989984512329,
+        -1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 2362,
+      "type": "VEC2",
+      "max": [
+        0.8297697901725769,
+        0.4776153564453125
+      ],
+      "min": [
+        0.80928885936737061,
+        0.42863470315933228
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5123,
+      "count": 2682,
+      "type": "SCALAR",
+      "max": [
+        2361.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "CliffCorner_01.bin",
+      "byteLength": 118740
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 28344,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 28344,
+      "byteLength": 28344,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 56688,
+      "byteLength": 37792,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 94480,
+      "byteLength": 18896,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 113376,
+      "byteLength": 5364,
+      "target": 34963
+    }
+  ],
+  "images": [
+    {
+      "uri": "Palette.jpg",
+      "name": "Palette"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {
+              "texCoord": 0
+            }
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "Mat_01"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0
+        }
+      ],
+      "name": "CliffCorner_01"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "CliffCorner_01"
+    }
+  ],
+  "samplers": [
+    {
+      "minFilter": 9729,
+      "wrapS": 33071,
+      "wrapT": 33071
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "Palette"
+    }
+  ]
+}
