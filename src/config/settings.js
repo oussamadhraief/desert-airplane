@@ -2,6 +2,9 @@ export const SETTINGS = {
   renderer: {
     antialias: true,
     powerPreference: 'high-performance',
+    pixelRatio: typeof window !== 'undefined' ? Math.min(window.devicePixelRatio, 2) : 1, // Cap at 2x to avoid extreme GPU load
+    shadowMapType: 'PCFSoftShadowMap',
+    outputColorSpace: 'srgb',
   },
   camera: {
     fov: 75,
@@ -16,6 +19,18 @@ export const SETTINGS = {
   },
   desert: {
     size: 500,
-    segments: 100,
+    segments: 200, // ↑ for smoother terrain
+    anisotropy: 16,
+  },
+  shadows: {
+    mapSize: 4096,
+    camera: {
+      near: 1,
+      far: 1200,
+      left: -600,
+      right: 600,
+      top: 600,
+      bottom: -600,
+    },
   },
 };

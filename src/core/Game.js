@@ -9,8 +9,8 @@ import { CameraController } from '../systems/CameraController';
 export class Game {
   constructor() {
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xcc7a52);
-    this.scene.fog = new THREE.Fog(0xcc7a52, 200, 700);
+    this.scene.background = new THREE.Color(0xd4a574);
+    this.scene.fog = new THREE.Fog(0xd4a574, 200, 600);
     this.isPaused = false;
 
     this.setupRenderer();
@@ -25,12 +25,20 @@ export class Game {
   }
 
   setupRenderer() {
-    this.renderer = new THREE.WebGLRenderer(SETTINGS.renderer);
+    this.renderer = new THREE.WebGLRenderer({
+      ...SETTINGS.renderer,
+      powerPreference: 'high-performance',
+      antialias: true,
+      logarithmicDepthBuffer: false,
+    });
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.toneMappingExposure = 1.3;
+    this.renderer.physicallyCorrectLights = true;
     document.body.appendChild(this.renderer.domElement);
   }
 
@@ -49,20 +57,27 @@ export class Game {
   }
 
   setupLights() {
-    const ambientLight = new THREE.AmbientLight(0xffd4a3, 0.7);
-    this.scene.add(ambientLight);
+    const hemisphereLight = new THREE.HemisphereLight(0xffeeb1, 0xd4a574, 0.8);
+    this.scene.add(hemisphereLight);
 
-    const sunLight = new THREE.DirectionalLight(0xffe8cc, 0.6);
-    sunLight.position.set(50, 100, 50);
+    const sunLight = new THREE.DirectionalLight(0xfff4e6, 1.5);
+    sunLight.position.set(100, 150, 100);
     sunLight.castShadow = true;
-    sunLight.shadow.camera.left = -100;
-    sunLight.shadow.camera.right = 100;
-    sunLight.shadow.camera.top = 100;
-    sunLight.shadow.camera.bottom = -100;
-    sunLight.shadow.camera.far = 200;
+    sunLight.shadow.camera.left = -150;
+    sunLight.shadow.camera.right = 150;
+    sunLight.shadow.camera.top = 150;
+    sunLight.shadow.camera.bottom = -150;
+    sunLight.shadow.camera.near = 50;
+    sunLight.shadow.camera.far = 400;
     sunLight.shadow.mapSize.width = 2048;
     sunLight.shadow.mapSize.height = 2048;
+    sunLight.shadow.bias = -0.0005;
+    sunLight.shadow.normalBias = 0.02;
     this.scene.add(sunLight);
+    
+    const fillLight = new THREE.DirectionalLight(0xb8d4f1, 0.4);
+    fillLight.position.set(-50, 50, -50);
+    this.scene.add(fillLight);
   }
 
   setupEntities() {
@@ -124,8 +139,6 @@ export class Game {
     if (this.isPaused) return;
 
     this.airplane.update(this.inputManager);
-    this.desert.update(this.airplane.mesh.position);
-    this.canyonWalls.update(this.airplane.mesh.position);
     
     const offset = this.cameraController.getCameraOffset(this.airplane.mesh.quaternion);
     const offsetVector = new THREE.Vector3(offset.x, offset.y, offset.z);

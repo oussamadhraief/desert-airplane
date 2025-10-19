@@ -6,7 +6,7 @@ export class CanyonWalls {
     this.mesh = new THREE.Group();
     this.isLoaded = false;
     this.models = {};
-    this.distance = 300;
+    this.distance = 250;
     
     this.loadModels();
   }
@@ -30,52 +30,51 @@ export class CanyonWalls {
   }
 
   createWalls() {
-    const wallScale = 18;
-    const cornerScale = 16;
-    const spacing = 32;
-    const segments = 12;
-    const groundOffset = -8;
+    const wallScale = 8;
+    const spacing = 30;
+    const segments = 18;
+    const yOffset = 0;
 
     for (let i = 0; i < segments; i++) {
       const offset = (i - segments / 2 + 0.5) * spacing;
 
       const backWall = this.models.cliff.clone();
-      backWall.position.set(offset, groundOffset, -this.distance);
+      backWall.position.set(offset, yOffset, -this.distance);
       backWall.rotation.y = 0;
       backWall.scale.set(wallScale, wallScale, wallScale);
       this.mesh.add(backWall);
 
       const frontWall = this.models.cliff.clone();
-      frontWall.position.set(offset, groundOffset, this.distance);
+      frontWall.position.set(offset, yOffset, this.distance);
       frontWall.rotation.y = Math.PI;
       frontWall.scale.set(wallScale, wallScale, wallScale);
       this.mesh.add(frontWall);
 
       const leftWall = this.models.cliff.clone();
-      leftWall.position.set(-this.distance, groundOffset, offset);
+      leftWall.position.set(-this.distance, yOffset, offset);
       leftWall.rotation.y = Math.PI / 2;
       leftWall.scale.set(wallScale, wallScale, wallScale);
       this.mesh.add(leftWall);
 
       const rightWall = this.models.cliff.clone();
-      rightWall.position.set(this.distance, groundOffset, offset);
+      rightWall.position.set(this.distance, yOffset, offset);
       rightWall.rotation.y = -Math.PI / 2;
       rightWall.scale.set(wallScale, wallScale, wallScale);
       this.mesh.add(rightWall);
     }
 
     const cornerPositions = [
-      { x: -this.distance, z: -this.distance, rotation: Math.PI / 2 },
-      { x: this.distance, z: -this.distance, rotation: 0 },
-      { x: this.distance, z: this.distance, rotation: -Math.PI / 2 },
-      { x: -this.distance, z: this.distance, rotation: Math.PI },
+      { x: -this.distance - 10, z: -this.distance - 10, rotation: Math.PI / 2 },
+      { x: this.distance + 10, z: -this.distance - 10, rotation: 0 },
+      { x: this.distance + 10, z: this.distance + 10, rotation: -Math.PI / 2 },
+      { x: -this.distance - 10, z: this.distance + 10, rotation: Math.PI },
     ];
 
     cornerPositions.forEach((pos, index) => {
       const corner = this.models.corners[index % 2].clone();
-      corner.position.set(pos.x, groundOffset, pos.z);
+      corner.position.set(pos.x, yOffset, pos.z);
       corner.rotation.y = pos.rotation;
-      corner.scale.set(cornerScale, cornerScale, cornerScale);
+      corner.scale.set(wallScale, wallScale, wallScale);
       this.mesh.add(corner);
     });
 
@@ -87,9 +86,4 @@ export class CanyonWalls {
     });
   }
 
-  update(cameraPosition) {
-    if (!this.isLoaded) return;
-    this.mesh.position.x = cameraPosition.x;
-    this.mesh.position.z = cameraPosition.z;
-  }
 }
